@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+    <title>debounce</title>
+    <style>
+        #container{
+            width: 100%; height: 200px; line-height: 200px; text-align: center; color: #fff; background-color: #444; font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/javascript">
+        var count = 1;
+        var container = document.getElementById('container');
+
+        function getUserAction() {
+            container.innerHTML = count++;
+        };
+
+        //container.onmousemove = getUserAction;
+        /*
+            防抖的原理就是：你尽管触发事件，但是我一定在事件触发 n 秒后才执行，如果你在一个事件触发的 n 秒内又触发了这个事件，
+            那我就以新的事件的时间为准，n 秒后才执行，总之，就是要等你触发完事件 n 秒内不再触发事件，我才执行，真是任性呐!
+        */
+       function debounce (func, wait) {
+            var timeout;
+            return function(){
+                clearTimeout(timeout);
+                timeout = setTimeout(func, wait)
+            }
+       }
+       //container.onmousemove = debounce(getUserAction, 1000);
+
+       function throttle (func, wait) {
+            var timeout;
+            return function(...args){
+                var _this = this;
+
+                if (!timeout) {
+                    timeout = setTimeout(function(){
+                        timeout = null;
+                        func.call(_this, args)
+                    }, wait)
+                }
+            }
+       }
+       container.onmousemove = throttle(getUserAction, 1000);
+
+
+       //不是某个事件触发就去执行函数 而是在制定的时间间隔内 执行一次 减少函数执行的次数
+       //函数防抖
+        //@params func :要执行的函数 wait：间隔等待的时间 immediate 在开始边界执行还是在结束边界执行（true开始边界）
+        function debounce(fn, delay) {
+            var timer = null;
+            return function (...args) {
+                var _this = this;
+                if (timer) {
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(function () {
+                    fn.apply(_this, args)
+                }, delay)
+            }
+        }
+    </script>
+</body>
+
+</html>

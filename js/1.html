@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ssssss</title>
+    </head>
+    <meta charset="UTF-8">
+    <body>
+        <p id="b">hello world</p>
+        <a href="javascript:;" id="my-btn">点我呀！！！</a>
+        <img src="https://fanyi-cdn.cdn.bcebos.com/static/translation/widget/translate/output/img/short-banner1_edeef70.png" width="100px" height="100px"/>
+        <script type="text/javascript" src="./1.js"></script>
+        <script type="text/javascript" async>
+            // function Person(){
+            //     this.name = "xiao";
+            // }
+            //console.log(Person.prototype);
+            //Person.prototype = {};
+            //var person1 = new Person();
+            // console.log(typeof person1, '===')
+            // console.log(typeof Person, '===')
+            // console.log(person1.__proto__==Person.prototype);
+            // console.log(Person.__proto__);
+            // console.log(Object.prototype);
+
+
+            // function Parent () {
+            //     this.name = 'kaixin';
+            // }
+            // Parent.prototype.name = "kaixin1";
+            // Parent.prototype.getParentValue = function () {
+            //     return this.name
+            // }
+            // function Child () {
+            //     this.childName = 'childname'
+            // }
+            // Child.prototype = Parent.prototype;
+            // console.log(Child.prototype);
+            // Child.prototype.getChildValue = function () {
+            //     return this.childName
+            // }
+            // var instance = new Child();
+            // //instance.name="kaixin"
+            // //alert(instance.getParentValue());
+            // console.log(instance.getParentValue);
+            // console.log(instance.__proto__ === Child.prototype);
+            // console.log(Child.prototype.constructor);
+
+
+            // function createFunctions () {
+            //     var result = new Array();
+            //     for (var i = 0; i< 10; i++) {
+            //         result[i] = function(num) {
+            //             return function(){
+            //                 return num
+            //             };
+            //         }(i)
+            //     }
+            //     return result;
+            // }
+            // let result = createFunctions();
+            // result.map((item) => {
+            //     console.log(item());
+            // })
+            // var fn = function(i) {
+            //     return i
+            // }
+            // var fn1 = function (i) { 
+            //     var index = i; //0
+            //     return fn(index)
+            // };
+
+            // function createFunctions () {
+            //     var result = new Array();
+            //     for (var i = 0; i< 10; i++) {
+            //         result[i] = function(){
+            //             return i;
+            //         }(i) 
+            //     }  
+            //     return result;
+            // }
+            // let result = createFunctions();
+            // result.map((item) => {
+            //     console.log(item());
+            // })
+            // var name = "The Window";
+            // var age = 2;
+            // function aa1() {
+            //     return this.age;
+            // }
+            // var object = {
+            //     name: 'My Object',
+            //     age: 1,
+            //     getNameFunc: aa1
+            // }
+            // console.log((object.getNameFunc = object.getNameFunc)());
+            // var data = [ ];
+            // for( var i=0; i<3 ; i++ ){
+            //         data [ i ] = function ( ) {
+            //             console.log ( i );
+            //         };
+            //     data [ i ]( i );
+            // }
+
+           
+            // function click() {
+            //     let ary = [];
+            //     for (var i = 0; i < 3; i++) {
+            //         ary[i] = function() {
+            //             alert(i);
+            //         }
+            //     }
+            //     return ary;
+            // }
+
+            // let a = click();
+            // a.forEach(_a => _a())
+
+        //     var img = new Image();
+        //     img.onload = img.onerror = function(){
+        //         alert('Done');
+        //     }
+        //     img.src = "https://fanyi-cdn.cdn.bcebos.com/static/translation/widget/translate/output/img/short-banner1_edeef70.png?cd="+handler
+        //     var message = 'window';
+        //     var handler = {
+        //         message: "我呀 我呀",
+        //         handleClick: function(event){
+        //             event.target.innerHTML = '111';
+        //             alert(this.message);
+        //         }
+        //     }
+        //     var btn = document.getElementById('my-btn');
+        //     //btn.addEventListener('click', handler.handleClick.bind(handler) )
+
+        //    btn.addEventListener('click', function (event){handler.handleClick(event) } )
+
+            //  function hello (num) {
+            //     return function(num1){
+            //         return function(num2){
+            //             return function(num3){
+            //                 return function () {
+            //                     return num+num1+num2+num3
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+            // console.log(add(1)(2)(3)(4)());
+
+
+
+
+
+            // function hello(message, name) {
+            //     return message+": "+name;
+            // }
+
+            // console.log(hello('你好', 'xiaofang1'));
+
+            // function curry(fn) {
+            //     return function(message) {
+            //         return function(name) {
+            //             return fn(message, name)
+            //         }
+            //     }
+            // }
+
+            // hello = curry(hello);
+            
+            // console.log(hello('你好')('xiaofang2'));
+
+            // let zhichuanName = hello('你好');
+            // console.log(zhichuanName('xiaofang3'));
+            // console.log(zhichuanName('fushuai3'));
+
+
+            // function createXHR () {
+            //     if (typeof XMLHttpRequest != "undefined") {
+            //         createXHR = function(){
+            //             return new XMLHttpRequest();
+            //         }
+            //     } else if (typeof ActiveXObject != Object) {
+            //         createXHR = function () {
+            //             return new ActiveXObject();
+            //         }
+            //     } else {
+            //         createXHR = function () {
+            //             throw new Error('sdfjsdjfskldfj');
+            //         }
+            //     }
+            //     return createXHR();
+            // }
+
+            // function createXHR () {
+            //     createXHR = function() {
+            //         return typeof XMLHttpRequest != "undefined" ? new XMLHttpRequest() : new ActiveXObject();
+            //     }
+            //     return createXHR();
+            // }
+            // console.log(createXHR());
+            // console.log(createXHR);
+
+            // function curry(fn){
+            //     var args = Array.prototype.slice.call(arguments, 1);
+            //     console.log(args, '====');
+            //     return function(){
+            //         var innerArgs = Array.prototype.slice.call(arguments);
+
+            //         var finalArgs = args.concat(innerArgs);
+            //         console.log(finalArgs, args, innerArgs, 'innerArgs');
+            //         debugger
+            //         return fn.apply(null, finalArgs);
+            //     }
+            // }
+            // function add (num, num1) {
+            //     return num + num1;
+            // }
+            // let afterFun = curry(add, 2);
+            // console.log(afterFun(3), '======');
+            // var person = {name: 'woshi'}
+            // Object.seal(person);
+            // person.name = 'xiugai'
+            // console.log(person.name);
+            // console.log(Object.isExtensible(person));
+
+            // function A(){
+            //     alert('执行了');
+            //     this.name = 'longze';
+            // }
+            // A.prototype.age = 29;
+            // function a(){}
+            // a.bind(A);
+            // a.prototype = A.prototype;
+            // console.log(a.prototype, '====');
+            // var instance = new a();
+            // console.log(instance);
+            
+
+            function numFormat(num){
+                num=num.toString().split(".");  // 分隔小数点
+                var arr=num[0].split("").reverse();  // 转换成字符数组并且倒序排列
+                var res=[];
+                for(var i=0,len=arr.length;i<len;i++){
+                if(i%3===0&&i!==0){
+                    res.push(",");   // 添加分隔符
+                }
+                res.push(arr[i]);
+                }
+                res.reverse(); // 再次倒序成为正确的顺序
+                if(num[1]){  // 如果有小数的话添加小数部分
+                res=res.join("").concat("."+num[1]);
+                }else{
+                res=res.join("");
+                }
+                return res;
+            }
+
+            var a=1234567894532;
+            var b=673439.4542;
+            console.log(numFormat(a)); // "1,234,567,894,532"
+            console.log(numFormat(b)); // "673,439.4542"
+
+            var a=1234567894532;
+            var b=673439.4542;
+
+            console.log(a.toLocaleString());  // "1,234,567,894,532"
+            console.log(b.toLocaleString());  // "673,439.454"  （小数部分四舍五入了）
+
+            function numFormat(num){
+            var res=num.toString().replace(/\d+/, function(n){ // 先提取整数部分
+                return n.replace(/(\d)(?=(\d{3})+$)/g,function($1){
+                    return $1+",";
+                    });
+            })
+            return res;
+            }
+
+            var a=1234567894532;
+            var b=673439.4542;
+            console.log(numFormat(a)); // "1,234,567,894,532"
+            console.log(numFormat(b)); // "673,439.4542"
+        </script>
+    </body>
+</html>

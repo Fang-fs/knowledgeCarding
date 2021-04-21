@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .flex{
+      width: 1300px;
+      height: 700px;
+      background: slategrey;
+      display: flex;
+      flex-direction: row;  /* 方向： row/column/row-reverse/column-reverse */
+      flex-wrap: nowrap;  /* 换行：nowrap/wrap/wrap-reverse， 换行了后，会把空间平分给每行 */
+      justify-content: flex-start; /* 基于当前direction，flex-start/flex-end/center/space-between/space-around */
+      align-items: center;  /* 交叉轴(row|column)flex-start/flex-end/center/baseline/stretch */
+      align-content: flex-start; /* 多轴(换行)之间的空隙：flex-start/flex-end/center/space-between/space-around/stretch; */
+      
+      /*flex-shrink: 1;缩小 1、0 */
+      /*flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。*/
+
+
+    }
+    div {
+      width: 100px;  
+      height: 100px;   /* 块的总体高度大于容器700高度时，每个块会按照比例平分 */
+      order: 1;/* order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。*/
+      flex-shrink: 1; 
+      flex-grow: 0; /*flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。1-占满剩余空间*/
+    }
+    .red{
+      order: 1;
+      
+    }
+    .black{
+       flex-grow: 1; /*1-占满剩余空间*/
+    }
+    .bisque{
+      flex-shrink: 0;
+      width: 300px;
+    }
+    .yellow{
+      align-self:  auto;  /* align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
+      auto | flex-start | flex-end | center | baseline | stretch; */
+    }
+  </style>
+</head>
+<body>
+  <div class="flex" id="btn">
+    <div class="red" style="background: red; height: 300px;"></div>
+    <div class="blue" style="background: blue; height: 250px;"></div>
+    <div class="yellow" style="background: yellow; height: 200px;"></div>
+    <div class="black" style="background: black; height: 150px;"></div>
+    <div class="orange" style="background: orange"></div>
+    <div class="aqua" style="background: aqua"></div>
+    <div class="bisque" style="background: bisque"></div>
+  </div>
+  <iframe src="./flex.html"></iframe>
+  <script>
+          //const bc = new BroadcastChannel('AlienZHOU');
+          //let count = 0;
+          // setInterval(function(){
+          //   bc.postMessage({msg:'aa',from: count});
+          //   count++;
+          // },1000)
+          // window.addEventListener('storage', function (e) {
+          //     if (e.key === 'ctc-msg') {
+          //         const data = JSON.parse(e.newValue);
+          //         const text = '[receive] ' + data.msg + ' —— tab ' + data.from;
+          //         console.log('[Storage I] receive message:', text);
+          //     }
+          // });
+          window.addEventListener('message', function (e) {
+            console.log(e.data, '=======');
+          });
+          function hello() {
+            console.log('Hello world');
+          }
+
+          var button = document.getElementById('btn');
+          button.addEventListener('click', {handleEvent: () => {alert('click')}}, false);
+  </script>
+</body>
+</html>

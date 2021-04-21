@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            flex
+        </title>
+    </head>
+    <style>
+        .container{
+            width: 500px;
+            background-color: gray;
+        }
+        .flex-container{
+            width: 500px;
+            height: 500px;
+            display: inline-flex;
+            flex-direction: row-reverse;
+        }
+        .small-block{
+           flex-shrink: 1; /*  默认是1 缩小 在no-wrap情况下 自元素宽度大于父元素会自动缩小 为0则相反  在子元素上设置*/
+           width: 100px;
+           height: 200px;           
+        }
+        .flex-view{
+            width: 500px;
+            height: 500px;
+            background-color: green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .left{
+            width: 100px;
+            height: 500px;
+            background-color: red;
+        }
+        /*flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。*/
+        .right{
+            flex: 1; /*flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
+*/
+            background-color: green;
+        }
+        .middle{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="flex-container">
+                <div class="small-block" style="background-color: red;"></div>
+                <div class="small-block" style="background-color: yellow;"></div>
+                <div class="small-block" style="background-color: blue;"></div>
+                <div class="small-block" style="background-color: green; height: 100px; flex-shrink: 2;"></div>
+                <div class="small-block" style="background-color: burlywood;"></div>
+                <div class="small-block" style="background-color: beige;"></div>
+                <div style="background-color: chocolate;">skjfklsjdflksdjflksdjfklsdjfklsdfjsdlkfjsdlkfjsdlkf</div>
+            </div>
+            <div class="flex-view">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+            <div class="flex-view">
+                <div class="middle">
+
+                </div>
+            </div>
+        </div>
+        <script>
+            // const bc = new BroadcastChannel('AlienZHOU');
+            // bc.onmessage = function (e) {
+            //     console.log(e,'====');
+            //     const data = e.data;
+            //     const text = '[receive] ' + data.msg + ' —— tab ' + data.from;
+            //     console.log('[BroadcastChannel] receive message:', text);
+            // };
+        //     window.addEventListener('storage', function (e) {
+        //       console.log(e,'====');
+        //       if (e.key === 'ctc-msg') {
+        //           const data = JSON.parse(e.newValue);
+        //           const text = '[receive] ' + data.msg + ' —— tab ' + data.from;
+        //           console.log('[Storage I] receive message:', text);
+        //       }
+        //   });
+          /* iframe 内代码 */
+            const bc = new BroadcastChannel('AlienZHOU');
+            // 收到来自页面的消息后，在 iframe 间进行广播
+            window.addEventListener('message', function (e) {
+                bc.postMessage(e.data);
+            });
+            /* iframe 内代码 */
+            // 对于收到的（iframe）广播消息，通知给所属的业务页面
+            bc.onmessage = function (e) {
+                window.parent.postMessage(e.data, '*');
+            };
+        </script>
+    </body>
+</html>
