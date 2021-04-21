@@ -47,7 +47,6 @@ jsonp 只能发送get 请求 不支持post put delete
 
         res.end();
     });
-
     server.listen('8080');
     console.log('Server is running at port 8080...');
 ```
