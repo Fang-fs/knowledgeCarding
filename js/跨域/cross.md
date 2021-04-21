@@ -55,12 +55,4 @@ jsonp 只能发送get 请求 不支持post put delete
     handleCallback({"status": true, "user": "admin"})
 ```
 #####jsonp
-
-
-
-
-
-
-
-
 参考原文：https://segmentfault.com/a/1190000011145364
