@@ -1,3 +1,5 @@
+const { reject } = require("async");
+
 (
     function () {
         function  myBind(context = window, ...outArgs) {
@@ -42,3 +44,15 @@ var result = f1();
 result(); // 输出1
 result(); // 输出2
 result(); // 输出3
+
+
+
+
+class ss {
+    constructor(){
+        this.x = '11'
+    }
+    
+}
+let aa = new ss();
+console.log(ss.prototype.x);
